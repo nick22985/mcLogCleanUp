@@ -1,7 +1,9 @@
+import chalk from "chalk";
 import fs from "fs";
 
 export async function mcCLeanUp(options) {
 	try {
+		console.log(`${chalk.blue("[MLCU]")}${chalk.blueBright.bold("[Info]")} In progress ...`);
 		let logFile = await fs.readFileSync(options.path, "utf8");
 		let logArray = logFile.match(/.*\[CHAT\].*\n/g).join("");
 		logArray = logArray
@@ -13,14 +15,13 @@ export async function mcCLeanUp(options) {
 		let extension = options.path.match(/\.([0-9a-z]+)(?:[\?#]|$)/i);
 		let filename = options.path.replace(/\.([0-9a-z]+)(?:[\?#]|$)/i, "") + "_cleaned" + extension[0];
 		fs.writeFileSync(filename, logArray, "utf8");
-		console.log("Done");
+		console.log(`${chalk.blue("[MLCU]")}${chalk.green.bold("[Success]")} Saved as: ${filename}`);
 	} catch (e) {
 		if (e.code == "ENOENT") {
-			console.log(e);
-			console.log("No log file found");
+			console.log(`${chalk.blue("[MLCU]")}${chalk.red("[Error]")} File not found: ${options.path}`);
 			process.exit(1);
 		} else {
-			console.log(e);
+			console.log(`${chalk.blue("[MLCU]")}${chalk.red("[Error]")} ${e.message}`);
 			process.exit(1);
 		}
 	}

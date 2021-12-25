@@ -2,8 +2,9 @@ import arg from "arg";
 import inquirer from "inquirer";
 import { mcCLeanUp } from "./main";
 var pjson = require("../package.json");
+const chalk = require("chalk");
 
-async function parseArgumentsIntoOptions(rawArgs) {
+function parseArgumentsIntoOptions(rawArgs) {
 	try {
 		const args = arg(
 			{
@@ -17,11 +18,12 @@ async function parseArgumentsIntoOptions(rawArgs) {
 			}
 		);
 		return {
-			path: args["--path"] || args._[0 || ""],
+			path: args["--path"] || args["_"][0] || "",
 			version: args["--version"] || false,
 		};
 	} catch (error) {
-		console.log("Expected: mcCleanup --path [path]");
+		console.log(chalk.blue("[MLCU]") + chalk.blueBright.bold("[Info]") + " Expected: mcCleanup --path [path]");
+		console.log(`${chalk.blue("[MLCU]")}${chalk.blueBright.bold("[Info]")} Expected: mcCleanup --path [path], \nReceived: ${rawArgs.slice(2)}`);
 		process.exit(1);
 	}
 }
@@ -45,7 +47,7 @@ async function promtForMissingOptions(options) {
 export async function cli(args) {
 	let options = parseArgumentsIntoOptions(args);
 	if (options.version) {
-		console.log(pjson.version);
+		console.log(`${chalk.blue("[MLCU]")}${chalk.blueBright.bold("[Info]")} Version: ${pjson.version}`);
 		process.exit(1);
 	}
 	options = await promtForMissingOptions(options);

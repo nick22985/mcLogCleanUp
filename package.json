@@ -1,6 +1,6 @@
 {
   "name": "@nick22985/mclogcleanup",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "CLI to clean up log files from minecraft java server",
   "main": "arc/mclogcleanup",
   "bin": {
@@ -25,6 +25,8 @@
   "license": "MIT",
   "dependencies": {
     "arg": "^5.0.1",
+    "chalk": "^4.0.0",
+    "cli-progress": "^3.9.1",
     "esm": "^3.2.25",
     "inquirer": "^8.2.0"
   },
