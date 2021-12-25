@@ -1,6 +1,6 @@
 {
   "name": "@nick22985/mclogcleanup",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CLI to clean up log files from minecraft java server",
   "main": "arc/mclogcleanup",
   "bin": {
@@ -30,6 +30,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nick22985/ManaCube-logFileCleanUp"
+    "url": "https://github.com/nick22985/mcLogCleanUp"
   }
 }
