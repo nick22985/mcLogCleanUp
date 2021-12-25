@@ -5,7 +5,7 @@
   "main": "arc/mclogcleanup",
   "bin": {
     "@nick22985/logFileCleanUp": "bin/mclogcleanup",
-    "mcCleanup": "bin/mclogcleanup",
+    "mccleanup": "bin/mclogcleanup",
     "mclog": "bin/mclogcleanup"
   },
   "publishConfig": {

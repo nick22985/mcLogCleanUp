@@ -3,22 +3,27 @@ import inquirer from "inquirer";
 import { mcCLeanUp } from "./main";
 var pjson = require("../package.json");
 
-function parseArgumentsIntoOptions(rawArgs) {
-	const args = arg(
-		{
-			"--path": String,
-			"--version": Boolean,
-			"-p": "--path",
-			"-v": "--version",
-		},
-		{
-			argv: rawArgs.slice(2),
-		}
-	);
-	return {
-		path: args["--path"] || args._[0],
-		version: args["--version"] || false,
-	};
+async function parseArgumentsIntoOptions(rawArgs) {
+	try {
+		const args = arg(
+			{
+				"--path": String,
+				"--version": Boolean,
+				"-p": "--path",
+				"-v": "--version",
+			},
+			{
+				argv: rawArgs.slice(2),
+			}
+		);
+		return {
+			path: args["--path"] || args._[0 || ""],
+			version: args["--version"] || false,
+		};
+	} catch (error) {
+		console.log("Expected: mcCleanup --path [path]");
+		process.exit(1);
+	}
 }
 
 async function promtForMissingOptions(options) {
