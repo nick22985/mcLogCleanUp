@@ -58,6 +58,11 @@ Will create a file called
 ./log_cleaned.log
 ```
 
+### Command Alliases
+mclog
+mcCleanup
+
+
 ## 🎈 Usage <a name="usage"></a>
 
 ```
