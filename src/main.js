@@ -10,7 +10,6 @@ export async function mcCLeanUp(options) {
 			.replace(/§[A-z*0-9]/g, "")
 			.replace(/.*\[CHAT\]\n/g, "")
 			.replace(/.*\[CHAT\]\s\n/g, "")
-			.replace(/.*\[STAFF\].*\n/g, "")
 			.replace(/.*\[PlayerVaultsX\].*\n/g, "");
 		let extension = options.path.match(/\.([0-9a-z]+)(?:[\?#]|$)/i);
 		let filename = options.path.replace(/\.([0-9a-z]+)(?:[\?#]|$)/i, "") + "_cleaned" + extension[0];
