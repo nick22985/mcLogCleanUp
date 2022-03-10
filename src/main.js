@@ -7,7 +7,7 @@ export async function mcCLeanUp(options) {
 		let logFile = await fs.readFileSync(options.path, 'utf8');
 		let logArray = logFile.match(/.*\[CHAT\].*/g);
 		if (logArray == null) throw new Error('No chat log found');
-		logArray = logArray.join('');
+		logArray = logArray.join('\n');
 		logArray = logArray
 			.replace(/§[A-z*0-9]/g, '')
 			.replace(/.*\[CHAT\]\n/g, '')
