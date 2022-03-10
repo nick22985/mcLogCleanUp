@@ -5,7 +5,7 @@ export async function mcCLeanUp(options) {
 	try {
 		console.log(`${chalk.blue('[MLCU]')}${chalk.blueBright.bold('[Info]')} In progress ...`);
 		let logFile = await fs.readFileSync(options.path, 'utf8');
-		let logArray = logFile.match(/.*\[CHAT\].*\n/g);
+		let logArray = logFile.match(/.*\[CHAT\].*/g);
 		if (logArray == null) throw new Error('No chat log found');
 		logArray = logArray.join('');
 		logArray = logArray
