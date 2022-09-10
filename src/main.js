@@ -10,6 +10,7 @@ export async function mcCLeanUp(options) {
 		logArray = logArray.join('\n');
 		logArray = logArray
 			.replace(/§[A-z*0-9]/g, '')
+			.replace(/�[A-z*0-9]/g, '')
 			.replace(/.*\[CHAT\]\n/g, '')
 			.replace(/.*\[CHAT\]\s\n/g, '')
 			.replace(/.*\[PlayerVaultsX\].*\n/g, '');
