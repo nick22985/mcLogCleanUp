@@ -1,6 +1,6 @@
 {
   "name": "@nick22985/mclogcleanup",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "CLI to clean up log files from minecraft java server",
   "main": "arc/mclogcleanup",
   "bin": {
